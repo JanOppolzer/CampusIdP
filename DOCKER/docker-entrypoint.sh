@@ -31,7 +31,11 @@ function jetty_https() (
 
 function idp_install_properties() {
 cat <<EOF > /opt/idp.install.properties
+idp.host.name=$SHIBBOLETH_HOSTNAME
+idp.src.dir=/opt/shibboleth-identity-provider-$SHIBBOLETH_VERSION
+idp.target.dir=/opt/shibboleth-idp
 idp.no.tidy=true
+idp.noprompt=true
 EOF
 }
 
@@ -51,14 +55,8 @@ function idp_install {
     /opt/shibboleth-identity-provider-$SHIBBOLETH_VERSION/bin/install.sh \
         -Didp.property.file=/opt/idp.install.properties \
         -Didp.merge.properties=/opt/idp.merge.properties \
-        -Didp.src.dir=/opt/shibboleth-identity-provider-$SHIBBOLETH_VERSION \
-        -Didp.target.dir=/opt/shibboleth-idp \
-        -Didp.scope=$SHIBBOLETH_SCOPE \
-        -Didp.host.name=$SHIBBOLETH_HOSTNAME \
         -Didp.sealer.password=$SHIBBOLETH_PASSWORD_SEALER \
-        -Didp.keystore.password=$SHIBBOLETH_PASSWORD_KEYSTORE \
-        -Didp.noprompt=true
-
+        -Didp.keystore.password=$SHIBBOLETH_PASSWORD_KEYSTORE
 }
 
 function shibboleth_conf() {
