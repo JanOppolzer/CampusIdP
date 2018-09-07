@@ -62,9 +62,9 @@ RUN wget -q -P /opt/src/ https://shibboleth.net/downloads/identity-provider/$SHI
     tar -xzf /opt/src/shibboleth-identity-provider-$SHIBBOLETH_VERSION.tar.gz -C /opt && \
     rm -rf /opt/src/
 
-COPY docker-entrypoint.sh /
+COPY docker-entrypoint.sh /usr/local/sbin
 
 EXPOSE 8080 8443
 
-ENTRYPOINT ["./docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
 
