@@ -103,7 +103,7 @@ PERSISTENTID=`cat <<EOF
         generatedAttributeID="storedId"
         salt="${PERSISTENTID_SALT}"
         queryTimeout="0">
-    <Dependency ref="uid" />
+    <InputAttributeDefinition ref="${PERSISTENTID_SOURCEATTRIBUTE}" />
     <BeanManagedConnection>shibboleth.MySQLDataSource</BeanManagedConnection>
     </DataConnector>
 EOF
