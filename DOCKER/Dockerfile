@@ -18,8 +18,8 @@ ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre \
     SHIBBOLETH_VERSION=$SHIBBOLETH_VERSION
 
 COPY gpg/ /root/gpg/
-RUN gpg -q --import /root/gpg/joakim.erdfelt_gmail.com.key && \
-    gpg -q --import /root/gpg/tzeller_dragonacea.biz.key && \
+RUN gpg --no-tty -q --import /root/gpg/joakim.erdfelt_gmail.com.key && \
+    gpg --no-tty -q --import /root/gpg/tzeller_dragonacea.biz.key && \
     rm -rf /root/gpg/
 
 RUN groupadd idp && \
