@@ -150,7 +150,7 @@ HOST=idp.example.org docker-compose -p example up -d --build
 To shut down the IdP including database, run:
 
 ```bash
-docker-compose -p example down
+HOST=idp.example.org docker-compose -p example down
 ```
 
 ### Stop and deleting everything
@@ -158,7 +158,7 @@ docker-compose -p example down
 To stop and delete running container, delete all built images and data volumes, run the following command:
 
 ```bash
-docker-compose -p example down --rmi local -v --remove-orphans
+HOST=idp.example.org docker-compose -p example down --rmi local -v --remove-orphans
 ```
 
 Using `all` argument for `--rmi` option would delete even images downloaded from internet. Nobody would want to use that since it is just a waste of bandwidth on both sides.
