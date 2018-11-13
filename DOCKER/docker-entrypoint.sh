@@ -76,6 +76,7 @@ function shibboleth_idp_properties() {
         -i.bak \
         -e "s/idp\.sealer\.storePassword\=\s*.*/idp.sealer.storePassword= ${SHIBBOLETH_PASSWORD_SEALER}/" \
         -e "s/idp\.sealer\.keyPassword\=\s*.*/idp.sealer.keyPassword= ${SHIBBOLETH_PASSWORD_SEALER}/" \
+        -e "s%^#idp.cookie.secure\s*=.*%idp.cookie.secure = true%" \
         /opt/shibboleth-idp/conf/idp.properties
 }
 
